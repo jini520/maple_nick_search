@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated CSV (랭킹 한글 2~3글자 닉)
+/exports/

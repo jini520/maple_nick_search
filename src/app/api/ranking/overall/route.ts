@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
   const world_name = searchParams.get("world_name") ?? undefined;
   const world_type = searchParams.get("world_type");
   const page = searchParams.get("page");
-  const date = searchParams.get("date") ?? "2025-12-03";
+  const date = searchParams.get("date") ?? "2026-04-13";
 
   try {
     const data = await getOverallRanking(apiKey, {

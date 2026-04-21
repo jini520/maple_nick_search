@@ -1,11 +1,12 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { getTodayDateString } from "@/lib/date";
 
 const TARGET_WORLDS = ["챌린저스", "챌린저스2", "챌린저스3", "챌린저스4"];
 
 /** Nexon 전체 랭킹 API `date`(YYYY-MM-DD) 기본값 */
-const DEFAULT_RANKING_DATE = "2026-04-13";
+const DEFAULT_RANKING_DATE = getTodayDateString();
 
 function parseLastPageInput(raw: string): number {
   const n = parseInt(raw.trim(), 10);

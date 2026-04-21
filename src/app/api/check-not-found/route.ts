@@ -6,6 +6,7 @@ import {
   getOverallRanking,
   type OverallRankingEntry,
 } from "@/lib/nexon-api";
+import { getTodayDateString } from "@/lib/date";
 import {
   TokenBucketLimiter,
   NEXON_MAX_REQUESTS_PER_SECOND,
@@ -107,7 +108,7 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const world_name = searchParams.get("world_name");
   const last_page_raw = searchParams.get("last_page");
-  const date = searchParams.get("date") ?? "2026-04-13";
+  const date = searchParams.get("date") ?? getTodayDateString();
 
   if (!world_name || !last_page_raw) {
     return new Response(

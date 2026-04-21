@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getOverallRanking } from "@/lib/nexon-api";
+import { getTodayDateString } from "@/lib/date";
 
 export async function GET(request: NextRequest) {
   const apiKey = process.env.NEXON_API_KEY;
@@ -14,7 +15,7 @@ export async function GET(request: NextRequest) {
   const world_name = searchParams.get("world_name") ?? undefined;
   const world_type = searchParams.get("world_type");
   const page = searchParams.get("page");
-  const date = searchParams.get("date") ?? "2026-04-13";
+  const date = searchParams.get("date") ?? getTodayDateString();
 
   try {
     const data = await getOverallRanking(apiKey, {
